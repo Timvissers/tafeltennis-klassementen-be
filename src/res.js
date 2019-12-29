@@ -1,4 +1,4 @@
-// based on http://tabt.frenoy.net/index.php?l=NL&display=MethodeGoodnessOfFit_NL, no virtual matches added
+// based on http://tabt.frenoy.net/index.php?l=NL&display=MethodeResidu_NL
 
 const {RATINGS} = require('./common.js'); // do not include in google app script, does not work
 
@@ -56,14 +56,17 @@ CHANCE_OF_WIN_X_LOWER = [CH_EQUAL, CH_LOW_01, CH_LOW_02, CH_LOW_03, CH_LOW_04,
 //  - ...
 //  - percentage wins/total against B0 (not used)
 // eg input: [[E6, 0, 0, 0, 4, 6, 40]]
-
-function RATING_GOF(input) {
+function RATING_RES(input) {
 	// TODO check input size
 	var wins = getWinsFromInput(input);
 	var totals = getTotalsFromInput(input);
-	var expectedWins = getExpectedGofWins(totals);
-	var diffs = getGofDiffs(wins, expectedWins);
-	return getLowestGofDiff(diffs);
+	var currentRating = input[0][0];
+	indexOfCurrentRating = getIndexOfCurrentRating(currentRating);
+	wins = addVirtualWins(indexOfCurrentRating, totals, wins);
+	totals = addVirtualTotals(indexOfCurrentRating, totals, wins);
+	var expectedWins = getExpectedResWins(totals);
+	var diffs = getResDiffs(wins, expectedWins);
+	return getLowestAbsoluteResDiff(diffs);
 }
 
 function getWinsFromInput(input) {
@@ -108,26 +111,90 @@ function getTotalsFromInput(input) {
 	return [NGTOTAL, E6TOTAL, E4TOTAL, E2TOTAL, E0TOTAL, D6TOTAL, D4TOTAL, D2TOTAL, D0TOTAL, C6TOTAL, C4TOTAL, C2TOTAL, C0TOTAL, B6TOTAL, B4TOTAL, B2TOTAL, B0TOTAL];
 }
 
-function individualGofDiff(wins, expectedWins) {
+function getIndexOfCurrentRating(currentRating) {
+	result = RATINGS.indexOf(currentRating);
+	if (result == -1) {
+		throw "Current rating is not a supported rating";
+	}
+	return result;
+}
+
+function addVirtualWins(currentRating, totals, wins) {
+	if(moreThan40InTotal(totals) || !extremePercentage(totals, wins)){
+		return wins;
+	}
+	result = [];
+	for (var i = 0; i < wins.length; i++) {
+		win = wins[i];
+		if (i == currentRating-1){
+			win += 3;
+		}else if (i == currentRating){
+			win += 2;
+		}else if (i == currentRating+1){
+			win += 1;
+		}
+		result.push(win);
+	}
+	return result;
+}
+
+function addVirtualTotals(currentRating, totals, wins) {
+	if(moreThan40InTotal(totals) || extremePercentage(totals, wins)){
+		return totals;
+	}
+	result = [];
+	for (var i = 0; i < totals.length; i++) {
+		total = totals[i];
+		if (i == currentRating-1 || i == currentRating || i == currentRating+1){
+			total += 4;
+		}
+		result.push(total);
+	}
+	return result;
+}
+
+function moreThan40InTotal(totals) {
+	total = sum(totals);
+	return (total > 40);
+}
+
+function extremePercentage(totals, wins){
+	total = sum(totals);
+	win = sum(wins);
+	if (total == 0){
+		return true;
+	}
+	return (win/total < 0.1) || (win/total > 0.9);
+}
+
+function sum(array){
+	result = 0;
+	for (var i = 0; i < array.length; i++) {
+		result += array[i];
+	}
+	return result;
+}
+
+function individualResDiff(wins, expectedWins) {
 	if (expectedWins == 0) {
 		return 0;
 	}
-	return Math.pow(wins - expectedWins, 2) / expectedWins;
+	return wins - expectedWins;
 }
 
-function getExpectedGofWins(listOfTotals) {
+function getExpectedResWins(listOfTotals) {
 	result = [];
 	for (var i = 0; i < listOfTotals.length; i++) {
 		listOfExpectedWinsForRatingI = [];
 		for (var inner = 0; inner < listOfTotals.length; inner++) {
-			listOfExpectedWinsForRatingI.push(listOfTotals[inner] * getGofChanceOfWin(inner - i));
+			listOfExpectedWinsForRatingI.push(listOfTotals[inner] * getResChanceOfWin(inner - i));
 		}
 		result.push(listOfExpectedWinsForRatingI);
 	}
 	return result;// a list of lists [[expectedWinsAgainstNG, expectedWinsAgainstE6, ...]]
 }
 
-function getGofChanceOfWin(i) {
+function getResChanceOfWin(i) {
 	if (i < 0) {
 		return CHANCE_OF_WIN_X_LOWER[-i];
 	} else {
@@ -135,28 +202,28 @@ function getGofChanceOfWin(i) {
 	}
 }
 
-function getGofDiffs(wins, expectedWins) {
+function getResDiffs(wins, expectedWins) {
 	result = [];
 	for (var i = 0; i < wins.length; i++) {
 		diff = 0;
 		for (var inner = 0; inner < expectedWins.length; inner++) {
-			diff += individualGofDiff(wins[inner], expectedWins[i][inner]);
+			diff += individualResDiff(wins[inner], expectedWins[i][inner]);
 		}
 		result.push(diff);
 	}
 	return result;
 }
 
-function getLowestGofDiff(diffs) {
+function getLowestAbsoluteResDiff(diffs) {
 	var index = 0;
 	var value = diffs[0];
 	for (var i = 1; i < diffs.length; i++) {
-		if (diffs[i] < value) {
-			value = diffs[i];
+		if (Math.abs(diffs[i]) < value) {
+			value = Math.abs(diffs[i]);
 			index = i;
 		}
 	}
 	return RATINGS[index];
 }
 
-module.exports = RATING_GOF; // do not include in google app script, does not work
+module.exports = RATING_RES;

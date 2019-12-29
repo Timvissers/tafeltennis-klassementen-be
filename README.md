@@ -13,7 +13,7 @@ De input parameters (basisresultaten) zijn bepaald op een manier waarop het moge
 
 http://tabt.frenoy.net/index.php?l=NL&display=MethodeGoodnessOfFit_NL
 
-Geen virtuele ontmoetingen toegevoegd.
+- Geen virtuele ontmoetingen toegevoegd.
 
 ### Limburg / Kempen (LK)
 
@@ -26,6 +26,10 @@ http://tabt.frenoy.net/index.php?l=NL&display=MethodeLimburgKempen_NL
 ### Vlaams Brabant (VLB)
 
 ### Residu (RES)
+
+based on http://tabt.frenoy.net/index.php?l=NL&display=MethodeResidu_NL
+
+- Virtuele ontmoetingen toegevoegd als de speler minder dan 40 ontmoetingen heeft of zijn percentage gewonnen of verloren wedstrijden < 10% is
 
 ### Elo gebaseerd (ELO)
 
@@ -53,7 +57,7 @@ Testen runnen:
 
 ## Gebruik in Google Sheets
 
-Alle src javascript files kunnen gekopieerd worden in Google Sheets. De module exports kunnen verwijderd worden.
+Alle src javascript files kunnen gekopieerd worden in Google Sheets. De imports en module exports moeten wel verwijderd worden.
 
 ## Disclaimer
 
