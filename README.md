@@ -20,8 +20,8 @@ http://tabt.frenoy.net/index.php?l=NL&display=MethodeGoodnessOfFit_NL
 http://tabt.frenoy.net/index.php?l=NL&display=MethodeLimburgKempen_NL
 
 - Nadeel van het algoritme: Je kan niet stijgen van klassement indien je niet tegen hogere klassementen speelde.
-- Bug van het algoritme: Incorrect hoger klassement toegekent indien je niet tegen hogere klassement speelde en je je huidige klassement opnieuw behaald.
-    - Dit is opgevangen in de implementatie door geen hogere klassement te geven. Let op, dit kan ook incorrect zijn indien tegen nog hogere klassementen een positief saldo werd gehaald.
+- Bug van het algoritme: Incorrect hoger klassement toegekend indien je niet tegen hogere klassement speelde en je je huidige klassement opnieuw behaald.
+    - Dit is opgevangen in de implementatie door geen hoger klassement te geven. Let op, dit kan ook incorrect zijn indien tegen nog hogere klassementen een positief saldo werd gehaald.
 
 ### Vlaams Brabant (VLB)
 
