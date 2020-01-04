@@ -47,7 +47,7 @@ http://tabt.frenoy.net/index.php?l=NL&display=MethodeVlb_NL
 
 ### Residu (RES)
 
-based on http://tabt.frenoy.net/index.php?l=NL&display=MethodeResidu_NL
+gebaseerd op http://tabt.frenoy.net/index.php?l=NL&display=MethodeResidu_NL
 
 - Virtuele ontmoetingen toegevoegd als de speler minder dan 40 ontmoetingen heeft of zijn percentage gewonnen of verloren wedstrijden < 10% is
 
@@ -61,6 +61,8 @@ http://tabt.frenoy.net/index.php?l=NL&display=MethodePointsELO_NL
 ## Geaggregeerde algoritmes
 
 ### Meerderheid (MER)
+
+gebaseerd op http://tabt.frenoy.net/index.php?l=NL&display=MethodeMeerderheid_NL
 
 ### Aile Francophone (AF)
 
