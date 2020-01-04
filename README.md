@@ -25,6 +25,26 @@ http://tabt.frenoy.net/index.php?l=NL&display=MethodeLimburgKempen_NL
 
 ### Vlaams Brabant (VLB)
 
+http://tabt.frenoy.net/index.php?l=NL&display=MethodeVlb_NL
+
+- 'gekozen' parameters:
+
+    V = 1 (bonuspunten voor elke overwinning)
+
+    D = 1 (verliespunten voor elke overwinning)
+
+    N = 5 (bonuspunten voor overwinning tegen hoger gerangschikte speler
+
+    M = 5 (verliespunten voor overwinning tegen lager gerangschikte speler)
+
+- 'gekozen' pivot functie:
+
+    aantalMatchen < 20: degradeer 1 klassement
+
+    aantalMatchen >= 80: zone pivotPoints rood is <-15, groen is >15
+
+    aantalMatched >=20 en <80: y = (-5/12)*x + (145/3); waar y = pivotPointsBorder en x = aantalMatchen
+
 ### Residu (RES)
 
 based on http://tabt.frenoy.net/index.php?l=NL&display=MethodeResidu_NL
