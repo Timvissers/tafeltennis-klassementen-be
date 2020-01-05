@@ -2,11 +2,16 @@
 
 De veelgebruikte algoritmes voor hernieuwing van het klassement op basis van resultaten.
 
-Ontwikkeld in plain javascript (ecmascript 5), met als doel deze algoritmes ook te kunnen gebruiken vanuit Google AppScript.
+Ontwikkeld in plain javascript (ecmascript 5) API, met als doel deze algoritmes ook te kunnen gebruiken vanuit Google AppScript.
 
 De input parameters (basisresultaten) zijn bepaald op een manier waarop het mogelijk is Google Sheet ranges te ondersteunen.
 
-De website https://www.ttcsintpauwels.be/competitie/vttl/bereken-je-klassement/ biedt zelf ontwikkelde algoritmes aan, inclusief een
+Deze library geeft een open implementatie van de beschreven algoritmes op http://tabt.frenoy.net. De algoritmes zijn open
+source en kunnen een inspiratie zijn, gebruikt worden voor debugging, geforked worden voor eigen aanpassingen.
+
+## Alternatieve resources
+
+De website https://www.ttcsintpauwels.be/competitie/vttl/bereken-je-klassement/ biedt zelf ontwikkelde algoritmes aan, inclusief een web
 interface en vooraf ingevulde ontmoetingen voor het huidige competitiejaar. De algoritmes zijn zeker niet identiek aangezien er ruimte voor
 interpretatie gelaten is en parameters geheim worden gehouden (wat betreft de officiele afhandeling van de klassementsbepalingen)
 in de beschrijving van de algortimes op http://tabt.frenoy.net.
