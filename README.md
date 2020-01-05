@@ -9,6 +9,8 @@ De input parameters (basisresultaten) zijn bepaald op een manier waarop het moge
 Deze library geeft een open implementatie van de beschreven algoritmes op http://tabt.frenoy.net. De algoritmes zijn open
 source en kunnen een inspiratie zijn, gebruikt worden voor debugging, geforked worden voor eigen aanpassingen.
 
+Buiten LK, VLB, RES en MER, worden ook de algoritmes voor GOF en een minder relevant 'algoritme' op basis van ELO punten aangeboden.
+
 ## Alternatieve resources
 
 De website https://www.ttcsintpauwels.be/competitie/vttl/bereken-je-klassement/ biedt zelf ontwikkelde algoritmes aan, inclusief een web
