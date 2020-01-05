@@ -66,6 +66,9 @@ gebaseerd op http://tabt.frenoy.net/index.php?l=NL&display=MethodeMeerderheid_NL
 
 ### Aile Francophone (AF)
 
+http://tabt.frenoy.net/index.php?l=NL&display=MethodeAileFrancophone_FR
+
+niet geimplementeerd. onduidelijke beschrijving
 
 ## Uitvoeren
 
