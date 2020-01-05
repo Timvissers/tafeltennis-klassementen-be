@@ -6,6 +6,10 @@ Ontwikkeld in plain javascript (ecmascript 5), met als doel deze algoritmes ook 
 
 De input parameters (basisresultaten) zijn bepaald op een manier waarop het mogelijk is Google Sheet ranges te ondersteunen.
 
+De website https://www.ttcsintpauwels.be/competitie/vttl/bereken-je-klassement/ biedt zelf ontwikkelde algoritmes aan, inclusief een
+interface en vooraf ingevulde ontmoetingen voor het huidige competitiejaar. De algoritmes zijn zeker niet identiek aangezien er ruimte voor
+interpretatie gelaten is en parameters geheim worden gehouden (wat betreft de officiele afhandeling van de klassementsbepalingen)
+in de beschrijving van de algortimes op http://tabt.frenoy.net.
 
 ## Algoritmes
 
@@ -22,6 +26,8 @@ http://tabt.frenoy.net/index.php?l=NL&display=MethodeLimburgKempen_NL
 - Nadeel van het algoritme: Je kan niet stijgen van klassement indien je niet tegen hogere klassementen speelde.
 - Bug van het algoritme: Incorrect hoger klassement toegekend indien je niet tegen hogere klassement speelde en je je huidige klassement opnieuw behaald.
     - Dit is opgevangen in de implementatie door geen hoger klassement te geven. Let op, dit kan ook incorrect zijn indien tegen nog hogere klassementen een positief saldo werd gehaald.
+
+verschil met https://www.ttcsintpauwels.be/competitie/vttl/bereken-je-klassement/: geen?
 
 ### Vlaams Brabant (VLB)
 
@@ -45,11 +51,15 @@ http://tabt.frenoy.net/index.php?l=NL&display=MethodeVlb_NL
 
     aantalMatched >=20 en <80: y = (-5/12)*x + (145/3); waar y = pivotPointsBorder en x = aantalMatchen
 
+verschil met https://www.ttcsintpauwels.be/competitie/vttl/bereken-je-klassement/: andere schattingen voor parameters en pivot functie
+
 ### Residu (RES)
 
 gebaseerd op http://tabt.frenoy.net/index.php?l=NL&display=MethodeResidu_NL
 
 - Virtuele ontmoetingen toegevoegd als de speler minder dan 40 ontmoetingen heeft of zijn percentage gewonnen of verloren wedstrijden < 10% is
+
+verschil met https://www.ttcsintpauwels.be/competitie/vttl/bereken-je-klassement/: hier worden de virtuele ontmoetingen niet toegevoegd.
 
 ### Elo gebaseerd (ELO)
 
@@ -63,6 +73,8 @@ http://tabt.frenoy.net/index.php?l=NL&display=MethodePointsELO_NL
 ### Meerderheid (MER)
 
 gebaseerd op http://tabt.frenoy.net/index.php?l=NL&display=MethodeMeerderheid_NL
+
+geen verschil in algoritme met https://www.ttcsintpauwels.be/competitie/vttl/bereken-je-klassement/
 
 ### Aile Francophone (AF)
 
