@@ -103,6 +103,8 @@ Testen runnen:
 
 Alle src javascript files kunnen gekopieerd worden in Google Sheets. De imports en module exports moeten wel verwijderd worden.
 
+[Voorbeeld](USAGE.md)
+
 ## Disclaimer
 
 - De algoritmes zijn mogelijks niet accuraat indien weinig (relevante) resultaten voor handen. Sommige algoritmes vangen dit op, andere niet.
