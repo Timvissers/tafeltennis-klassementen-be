@@ -105,6 +105,8 @@ Alle src javascript files kunnen gekopieerd worden in Google Sheets. De imports 
 
 [Voorbeeld](USAGE.md)
 
+[Voorbeeldsheet in google drive](https://docs.google.com/spreadsheets/d/1xbHsJZ8x_bdYKzffOnV8ehwgzmrxlgThdnLUAx0HaE4/edit?usp=sharing)
+
 ## Disclaimer
 
 - De algoritmes zijn mogelijks niet accuraat indien weinig (relevante) resultaten voor handen. Sommige algoritmes vangen dit op, andere niet.
